@@ -3,7 +3,7 @@
 
 `说明：鉴于目前React hooks比较🔥， 且大多数React开发者已经在使用hooks进行业务开发，因此，我们提供的Demo也是基于hooks的。`
 
-[demo](./demo.gif)
+<img src="https://github.com/baizn/g6-in-react/blob/master/demo.gif" />
 
 ### 功能
 我们提供的Demo，包括了以下功能：
