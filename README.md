@@ -3,6 +3,8 @@
 
 `说明：鉴于目前React hooks比较🔥， 且大多数React开发者已经在使用hooks进行业务开发，因此，我们提供的Demo也是基于hooks的。`
 
+更详细的内容请参考[React中使用G6](https://www.yuque.com/antv/g6/zmfur7)文档。
+
 <img src="https://github.com/baizn/g6-in-react/blob/master/demo.gif" />
 
 ### 功能
