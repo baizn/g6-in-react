@@ -1,0 +1,54 @@
+.edgeTooltips {
+  position: absolute;
+  left: -300px;
+  top: -100px;
+}
+.edgeTitle {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 70px;
+  background: #fff;
+  border: 1px solid #40a9ff;
+}
+.edgeDetail {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: #bae7ff;
+  width: 200px;
+}
+.tooltipsCommon {
+  font-size: 16px;
+  margin: 0;
+  padding-left: 10px;
+}
+.tooltipsMoney {
+  padding-bottom: 5px;
+}
+.tooltipsDate {
+  font-size: 12px;
+  color: #ccc;
+}
+.detailContent {
+  margin-bottom: 10px;
+}
+.edgeCode {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.edgeValue {
+  padding-left: 10px;
+}
+.nodeTooltips {
+  position: absolute;
+  left: -300px;
+  top: -100px;
+  /* width: 150px; */
+  height: 160px;
+  padding: 10px;
+  border: 1px solid #36cfc9;
+  background: #e6fffb;
+}

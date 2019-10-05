@@ -1,0 +1,29 @@
+{
+  "name": "g6-in-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "umi dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizn/g6-in-react.git"
+  },
+  "keywords": [
+    "g6"
+  ],
+  "author": "baizn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baizn/g6-in-react/issues"
+  },
+  "homepage": "https://github.com/baizn/g6-in-react#readme",
+  "dependencies": {
+    "@antv/g6": "^3.0.7-beta.1",
+    "antd": "^3.23.5",
+    "dagre": "^0.8.4",
+    "graphlib": "^2.1.7"
+  }
+}
