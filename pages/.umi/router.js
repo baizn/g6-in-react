@@ -43,6 +43,11 @@ const routes = [
     component: require('../registerShape.js').default,
   },
   {
+    path: '/tree',
+    exact: true,
+    component: require('../tree/index.js').default,
+  },
+  {
     component: () =>
       React.createElement(
         require('/Users/moyee/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
