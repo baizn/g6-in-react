@@ -33,9 +33,14 @@ const routes = [
     component: require('../data.js').default,
   },
   {
-    path: '/',
+    path: '/index',
     exact: true,
     component: require('../index.js').default,
+  },
+  {
+    path: '/',
+    exact: true,
+    component: require('../index1.js').default,
   },
   {
     path: '/registerShape',
@@ -43,14 +48,9 @@ const routes = [
     component: require('../registerShape.js').default,
   },
   {
-    path: '/tree',
-    exact: true,
-    component: require('../tree/index.js').default,
-  },
-  {
     component: () =>
       React.createElement(
-        require('/Users/moyee/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+        require('/Users/l/workspace/other/g6/g6-in-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'pages', hasRoutesInConfig: false },
       ),
@@ -63,7 +63,7 @@ plugins.applyForEach('patchRoutes', { initialValue: routes });
 export { routes };
 
 export default class RouterWrapper extends React.Component {
-  unListen = () => {};
+  unListen() {}
 
   constructor(props) {
     super(props);
@@ -79,7 +79,15 @@ export default class RouterWrapper extends React.Component {
       });
     }
     this.unListen = history.listen(routeChangeHandler);
-    routeChangeHandler(history.location);
+    // dva 中 history.listen 会初始执行一次
+    // 这里排除掉 dva 的场景，可以避免 onRouteChange 在启用 dva 后的初始加载时被多执行一次
+    const isDva =
+      history.listen
+        .toString()
+        .indexOf('callback(history.location, history.action)') > -1;
+    if (!isDva) {
+      routeChangeHandler(history.location);
+    }
   }
 
   componentWillUnmount() {

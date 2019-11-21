@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { data } from './data';
 import G6 from '@antv/g6';
+import dagre from 'dagre';
 import { NodeTooltips, EdgeToolTips, NodeContextMenu } from './component'
 import './registerShape';
 
@@ -26,7 +28,6 @@ export default function() {
     // 监听edge上面mouse事件
     graph.on('edge:mouseenter', evt => {
       const { item, target } = evt
-      debugger
       const type = target.get('type')
       if(type !== 'text') {
         return
@@ -78,8 +79,49 @@ export default function() {
 
   useEffect(() => {
     if(!graph) {
+      // TODO 3.1.0版本发布后 layout 部分使用G6内置替代
+      const g = new dagre.graphlib.Graph();
+      g.setDefaultEdgeLabel(function() {
+        return {};
+      });
+      g.setGraph({
+        rankdir: 'LR'
+      });
+
+      data.nodes.forEach(function(node) {
+        g.setNode(node.id + '', {
+          width: 280,
+          height: 100
+        });
+      });
+
+      data.edges.forEach(function(edge) {
+        edge.source = edge.source + '';
+        edge.target = edge.target + '';
+        g.setEdge(edge.source, edge.target);
+      });
+      dagre.layout(g);
+
+      let coord = void 0;
+      g.nodes().forEach(function(node, i) {
+        coord = g.node(node);
+        data.nodes[i].x = coord.x;
+        data.nodes[i].y = coord.y;
+      });
+      g.edges().forEach(function(edge, i) {
+        coord = g.edge(edge);
+        const startPoint = coord.points[0];
+        const endPoint = coord.points[coord.points.length - 1];
+        data.edges[i].startPoint = startPoint;
+        data.edges[i].endPoint = endPoint;
+        data.edges[i].controlPoints = coord.points.slice(
+          1,
+          coord.points.length - 1
+        );
+      });
+
       graph = new G6.Graph({
-        container: ref.current,
+        container: ReactDOM.findDOMNode(ref.current),
         width: 1200,
         height: 800,
         modes: {
@@ -100,18 +142,10 @@ export default function() {
         },
         defaultEdge: {
           shape: 'polyline'
-        },
-        layout: {
-          type: 'dagre',
-          rankdir: 'LR',
-          nodesep: 30,
-          ranksep: 100
         }
       })
     }
-    
     graph.data(data)
-  
     graph.render()
 
     const edges = graph.getEdges()
@@ -133,6 +167,7 @@ export default function() {
       { showEdgeTooltip && <EdgeToolTips x={edgeTooltipX} y={edgeTooltipY} /> }
       { showNodeTooltip && <NodeTooltips x={nodeTooltipX} y={nodeTooltipY} /> }
       { showNodeContextMenu && <NodeContextMenu x={nodeContextMenuX} y={nodeContextMenuY} /> }
+      <button onClick={()=>{history.go(-1)}}>返回</button>
     </div>
   );
 }
