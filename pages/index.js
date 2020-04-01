@@ -83,7 +83,7 @@ export default function() {
         width: 1200,
         height: 800,
         modes: {
-          default: ['drag-canvas']
+          default: ['drag-canvas', 'name']
         },
         defaultNode: {
           shape: 'node',

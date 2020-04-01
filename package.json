@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/baizn/g6-in-react#readme",
   "dependencies": {
-    "@antv/g6": "^3.0.7-beta.1",
+    "@antv/g6": "^3.4.0",
     "antd": "^3.23.5",
     "umi": "^2.4.4"
   }
