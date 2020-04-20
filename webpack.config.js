@@ -3,6 +3,7 @@ const path = require('path')
 // eslint-disable-next-line prefer-destructuring
 const resolve = path.resolve;
 const HTMLPlugin = require('html-webpack-plugin');
+const UglifyJSWebpackPlguin  = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -61,6 +62,13 @@ module.exports = {
     new webpack.optimize.AggressiveMergingPlugin(),
     new HTMLPlugin({
       template: './pages/index.html'
+    }),
+    // 更多配置项参考：https://www.webpackjs.com/plugins/uglifyjs-webpack-plugin/
+    new UglifyJSWebpackPlguin({
+      exclude: /node_modules/,
+      uglifyOptions: {
+        ecma: 5
+      }
     })
   ],
   devtool: 'cheap-module-eval-source-map',
