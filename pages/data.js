@@ -42,7 +42,7 @@ export const data = {
       source: '1',
       target: '2',
       data: {
-        type: '凭证开立',
+        type: 'name1',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -51,7 +51,7 @@ export const data = {
       source: '1',
       target: '3',
       data: {
-        type: '凭证转让',
+        type: 'name2',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -60,7 +60,7 @@ export const data = {
       source: '2',
       target: '5',
       data: {
-        type: '凭证开立',
+        type: 'name1',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -69,7 +69,7 @@ export const data = {
       source: '5',
       target: '6',
       data: {
-        type: '凭证转让',
+        type: 'name2',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -78,7 +78,7 @@ export const data = {
       source: '3',
       target: '4',
       data: {
-        type: '凭证融资',
+        type: 'name3',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -87,7 +87,7 @@ export const data = {
       source: '4',
       target: '7',
       data: {
-        type: '凭证转让',
+        type: 'name2',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -96,7 +96,7 @@ export const data = {
       source: '1',
       target: '8',
       data: {
-        type: '凭证转让',
+        type: 'name2',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }
@@ -105,7 +105,7 @@ export const data = {
       source: '1',
       target: '9',
       data: {
-        type: '凭证融资',
+        type: 'name3',
         amount: '100,000,000,00 元',
         date: '2019-08-03'
       }

@@ -67,7 +67,8 @@ module.exports = {
     new UglifyJSWebpackPlguin({
       exclude: /node_modules/,
       uglifyOptions: {
-        ecma: 5
+        ecma: 5,
+        ie8: true
       }
     })
   ],

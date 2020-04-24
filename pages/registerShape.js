@@ -1,8 +1,8 @@
 import G6 from '@antv/g6'
 const colorMap = {
-  '凭证开立': '#72CC4A',
-  '凭证转让': '#1A91FF',
-  '凭证融资': '#FFAA15'
+  'name1': '#72CC4A',
+  'name2': '#1A91FF',
+  'name3': '#FFAA15'
 }
 
 G6.registerNode('node', {
