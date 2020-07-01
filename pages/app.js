@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { data } from './data';
 import G6 from '@antv/g6';
 import { NodeTooltips, EdgeToolTips, NodeContextMenu } from './component'
+import { data } from './data';
 import './registerShape';
+import '@ali/deep-g6-shapes/lib/nodes/person.js'
 
 export default function() {
   const ref = React.useRef(null)
@@ -86,7 +87,7 @@ export default function() {
           default: ['drag-canvas', 'name']
         },
         defaultNode: {
-          shape: 'node',
+          type: 'node',
           labelCfg: {
             style: {
               fill: '#000000A6',

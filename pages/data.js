@@ -2,11 +2,13 @@ export const data = {
   nodes: [
     {
       id: '1',
-      label: '公司1'
+      label: '公司1',
+      type: 'person-principal'
     },
     {
       id: '2',
-      label: '公司2'
+      label: '公司2',
+      type: 'modelRect'
     },
     {
       id: '3',

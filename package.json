@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/baizn/g6-in-react#readme",
   "dependencies": {
-    "@antv/g6": "^3.4.0",
+    "@ali/deep-g6-shapes": "^0.0.4",
+    "@antv/g6": "^3.5.9",
     "antd": "^3.23.5",
     "html-webpack-plugin": "^4.2.0",
     "react": "^16.13.1",
