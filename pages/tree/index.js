@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { Button } from 'antd'
 import G6 from '@antv/g6';
 
