@@ -78,21 +78,24 @@ export default function() {
 
   useEffect(() => {
     if(!graph) {
+      const miniMap = new G6.Minimap()
       graph = new G6.Graph({
         container: ref.current,
         width: 1200,
         height: 800,
         modes: {
-          default: ['drag-canvas', 'name']
+          default: ['drag-canvas', 'drag-node']
         },
         defaultNode: {
           shape: 'node',
+          // 节点文本样式
           labelCfg: {
             style: {
               fill: '#000000A6',
               fontSize: 10
             }
           },
+          // 节点默认样式
           style: {
             stroke: '#72CC4A',
             width: 150
@@ -101,12 +104,26 @@ export default function() {
         defaultEdge: {
           shape: 'polyline'
         },
+        // 节点交互状态配置
+        nodeStateStyles: {
+          hover: {
+            stroke: 'red',
+            lineWidth: 3
+          }
+        },
+        edgeStateStyles: {
+          hover: {
+            stroke: 'blue',
+            lineWidth: 3
+          }
+        },
         layout: {
           type: 'dagre',
           rankdir: 'LR',
           nodesep: 30,
           ranksep: 100
-        }
+        },
+        plugins: [miniMap]
       })
     }
     
