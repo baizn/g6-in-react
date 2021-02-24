@@ -66,7 +66,8 @@ export default function() {
 
     // 监听节点上面右键菜单事件
     graph.on('node:contextmenu', evt => {
-      const { item } = evt
+      const { item, originalEvent } = evt
+      originalEvent.preventDefault()
       const model = item.getModel()
       const { x, y } = model
       const point = graph.getCanvasByPoint(x, y)
