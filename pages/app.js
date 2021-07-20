@@ -143,13 +143,27 @@ export default function() {
     graph.paint()
 
     bindEvents()
+
+    const resizeGraph = (entries) => {
+      if (!graph || graph.get("destroyed")) return
+      graph.changeSize(entries[0].contentRect.width, entries[0].contentRect.height)
+    }
+    const ro = new ResizeObserver(resizeGraph)
+    ro.observe(ref.current)
+
+    return () => {
+      graph = null
+      ro.unobserve(ref.current)
+    };
   }, [])
 
   return (
-    <div ref={ref}>
-      { showEdgeTooltip && <EdgeToolTips x={edgeTooltipX} y={edgeTooltipY} /> }
-      { showNodeTooltip && <NodeTooltips x={nodeTooltipX} y={nodeTooltipY} /> }
-      { showNodeContextMenu && <NodeContextMenu x={nodeContextMenuX} y={nodeContextMenuY} /> }
-    </div>
+      <div style={{background: "gray", padding: "1em", height: "100vh", width: "100vw"}}>
+        <div ref={ref} style={{background: "white", height: "100%", width: "100%", position: "relative"}}>
+          {showEdgeTooltip && <EdgeToolTips x={edgeTooltipX} y={edgeTooltipY}/>}
+          {showNodeTooltip && <NodeTooltips x={nodeTooltipX} y={nodeTooltipY}/>}
+          {showNodeContextMenu && <NodeContextMenu x={nodeContextMenuX} y={nodeContextMenuY}/>}
+        </div>
+      </div>
   );
 }
